@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: engineering-api
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: engineering-api
+  template:
+    metadata:
+      labels:
+        app: engineering-api
+    spec:
+      containers:
+      - name: engineering-api
+        image: sdbr1234/engineering_server:latest
+        ports:
+        - containerPort: 8080
+        
+
+        
+
