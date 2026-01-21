@@ -3,9 +3,8 @@ from typing import Annotated
 import datetime
 
 
-
-class WhetherLocation(BaseModel):
-    timestamp: datetime
+class WhatherLocation(BaseModel):
+    timestamp: datetime.datetime
     location_name: str
     country: str
     latitude: Annotated[float, Field(
@@ -22,3 +21,6 @@ class WhetherLocation(BaseModel):
     )]
     wind_speed: float
     humidity: float
+
+class InputParameter(BaseModel):
+    data: dict[list[dict[str, WhatherLocation]]]

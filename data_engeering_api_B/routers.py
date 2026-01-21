@@ -1,14 +1,12 @@
 from fastapi import APIRouter, HTTPException
-from schemas import WhetherLocation
-from service import clean_data
+from schemas import WhatherLocation
+from service import DataProcess
 
 
 router = APIRouter()
 
 
 @router.post("/clean")
-def clean_data_route(data: WhetherLocation):
-    try:
-        return clean_data(data)
-    except Exception as e:
-        raise{"message": e}
+def clean_data_route(data: WhatherLocation):
+    print(data)
+    return DataProcess.clean_data(data)
